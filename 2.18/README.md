@@ -20,7 +20,7 @@ This will consume the most bandwidth for the initial build but
 will be easy to update thereafter. 
 
 ```
-docker pull kartoza/qgis-desktop:2.8.9
+docker pull kartoza/qgis-desktop:LTR
 ```
 
 
@@ -29,8 +29,8 @@ desktop shortcut yourself by taking the resources from the git repo e.g.:
 
 
 ```
-sudo cp run-qgis-2.8.9-in-docker.sh /usr/local/bin
-sudo cp QGIS-2.8.9.Docker.desktop /usr/share/applications/
+sudo cp run-qgis-2.14ltr-in-docker.sh /usr/local/bin
+sudo cp QGIS-2.14LTR.Docker.desktop /usr/share/applications/
 sudo cp qgis-icon-60x60.png /usr/local
 ```
 
@@ -52,7 +52,7 @@ cd docker-qgis-desktop
 To build the image do:
 
 ```
-docker build -t kartoza/qgis-desktop:2.8 git://github.com/kartoza/docker-qgis-desktop
+docker build -t kartoza/qgis-desktop:2.14 git://github.com/kartoza/docker-qgis-desktop
 ```
 
 If you follow this approach you will need to create the 
@@ -68,17 +68,17 @@ xhost +
 # Users home is mounted as home
 # --rm will remove the container as soon as it ends
 
-docker run --rm --name="qgis-desktop-2.8" \
+docker run --rm --name="qgis-desktop-2.14ltr" \
 	-i -t \
 	-v ${HOME}:/home/${USER} \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
 	-e DISPLAY=unix$DISPLAY \
-	kartoza/qgis-desktop:2:8
+	kartoza/qgis-desktop:2.14 
 xhost -
 ```
-The above is the content of run-qgis-2.8-in-docker.sh so you can just
+The above is the content of run-qgis-2.14ltr-in-docker.sh so you can just
 ```
-./run-qgis-2.8-in-docker.sh
+./run-qgis-2.14ltr-in-docker.sh
 ```
 
 Follow the instructions above to create a desktop shortcut. Then, when you
